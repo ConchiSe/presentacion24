@@ -1,0 +1,404 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>HTTP</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h1>Servidor Web</h1>
+				
+				<p>2º SMR Servicios en Red</p>
+				
+				
+				
+				</section>
+				<section>
+					<h3>Introducción al HTTP</h3>
+				<p>El servicio web o servicio HTTP por sus siglas en inglés, Hypertext transfer Protocol, es un protocolo de
+				transferencia de <a href="https://es.wikipedia.org/wiki/Hipertexto">hipertexto</a> que se utiliza par distribuir y compartir información mediante páginas web.<br/>
+				HTTP es un protocolo que envía la información en texto plano y por ello, no se condidera como un protocolo seguro
+				para intercambiar información, como alternativa se puede utilizar el protocolo HTTPS, que significa HTTP Secure.
+				
+				
+				</p>
+				
+				
+				
+				
+				</section>
+				<section>
+				<p>El protocolo HTTPS cifra el intercambio de información y garantiza la confidencialidad de los datos transmitidos.<br/>
+				Los servidores web albergan las páginas de hipertexto y utilizan de forma estándar el puerto 80 TCP si se utiliza
+				el protocolo HTTP. Para el protocolo HTTPS el puerto asociado por defecto es el 443 TCP.<br/>
+				
+				
+					</p>
+					
+				
+				
+				</section>
+				<section>
+				<p> El servicio HTTP (Hypertext transfer protocol) o protocolo de transferencia de Hipertexto, nos permite transferir información
+				(páginas web, imágenes, vídeos, documentos,..etc.) entre un cliente o navegador web y un servidor web a través del puerto 80.
+				Seguramente sea el servicio más importante de Internet. <br/>HTTPS (Hypertext transfer protocol secure) es la versión segura del 
+				protocolo HTTP y utiliza el puerto 443 y un cifrado	basado en SSL/TLS (Secure Socket Layer y su sucesor Transfer Layer Security).
+					</p>
+					
+				
+				
+				</section>
+				<section>
+				<p> 
+				Los clientes, llamados navegadores web, se conectan a los servidores utilizando estos puertos y solicitan al servidor el envío
+				de un recurso, normalmente una página web. El servidor a continuación, envía su respuesta al cliente y este se encarga de darle formato
+				 y representarla en pantalla del dispositivo que se esté utilizando, hoy en día se usa tanto ordenadores como tabletas y smartphones
+				 para acceder y consultar la web.
+				</p>
+					
+				
+				
+				</section>
+					<section>
+				
+				<h3>Los tipos MIME</h3>
+				<p> 
+				Inicialmente las páginas web contenían texto y enlaces (hypertext) por lo que inicialmente el protocolo HTTP te permitía
+				 enviar únicamente texto. Actualmente HTTP nos permite enviar todo tipo de documentos gracias a los tipos MIME. 
+				 Por ello utiliza encabezados que describen el contenido del propio mensaje mediante codificación MIME. 
+				 Por lo tanto los tipos MIME son unas especificaciones usadas para dar formato a mensajes no ASCII. 
+				 IANA es el organismo internacional que define los tipos MIME. 
+
+ 
+				</p>
+					
+				
+				
+				</section>
+					<section>
+				<p> 
+				Existen diferentes tipos MIME: <br/>
+
+                text/html, text/css, video/mpeg (un documento html, una hoja de estilos y un vídeo en formato mpeg).<br/>
+                 Los tipos MIME se utilizan en los siguientes casos: <br/><br/>
+                 1. Para informar al navegador del tipo de datos que esta recibiendo del servidor. 
+                
+				</p>
+					
+				
+				
+				</section>
+							
+				</section>
+				<section>
+				<p> 
+				 Se define usando: <a href="https://uniwebsidad.com/libros/xhtml/capitulo-10/metadatos">Content-type</a> dependiendo de si el navegador puede interpretarlo 
+                 puede: 
+                 <ul>
+                 <li>visualizar el documento (por ejemplo text/html), </li>
+                 <li>llamar a una aplicación externa (application/pdf al descargar un documento pdf lo leemos con un lector de pdf) o</li> 
+                 <li>preguntar al usuario que hacer si no sabe con que abrir su contenido (aplication/abb).</li>
+                 </ul>
+ 
+				</p>
+							
+				
+				</section>
+					<section>
+				<p> 
+				
+				2. Para permitir o denegar un contenido: Por ejemplo, Allow: application/doc <br/>
+
+                3. Para encapsular uno o mas objetos dentro del cuerpo del mensajes. 
+                El más conocido son los tipos multipart (<a href="https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=541:enctype-multipartform-data-html-seleccionar-archivo-type-file-en-formularios-ejemplo-basico-cu00725b&catid=69&Itemid=192">
+                multipart/form-data)</a>, que se suelen utilizar junto al 
+                método POST para hacer un upload de una imágen al servidor.
+				</p>
+							
+				
+				</section>
+				
+					<section>
+				<h3>Funcionamiento del protocolo</h3>
+				<p> 
+				
+    1. El usuario introduce la url en el navegador<br/>
+    2. El navegador o cliente http decodifica la información obteniendo el esquema o protocolo, la IP o 
+    el nombre del servidor web, puerto, etc.<br/>
+    3. El cliente conecta con el servidor web y le solicita la pagina web. Petición HTTP (Request).<br/>
+    4. El servidor envía la pagina web o devuelve el código de error correspondiente. Respuesta HTTP (Response).<br/>
+    5. Navegador o cliente http interpreta los códigos html recibidos y visualiza el resultado.<br/>
+    6. Se cierra la conexión.<br/>
+
+				</p>
+					</section>
+							
+			<section>
+			
+				<p> 
+				Por lo tanto cuando se establece una conexión HTTP tenemos dos tipos de mensajes entre un cliente y 
+				un servidor: una petición por parte del cliente y una respuesta por parte del servidor. <br/>
+				Si el navegador solicita una pagina web con 2 imágenes, van a existir 3 conexiones: 
+				Una pára solicitar la página web y dos para las imágenes.
+ 
+				</p>
+							
+				
+			
+				</section>
+									
+			<section>
+			
+				<p> 
+				Normalmente, el recurso solicitado consiste en una página web. Las páginas web, escritas en HTML
+				pueden contener tanto hipertexto como otro tipo de recursos multimedia: imágenes, vídeos, ... 
+				Como el servidor cierra la conexión tras el envío de la página web, el navegador tendrá que volver
+				a conectarse con el servidor para solicitarle el resto de recursos que contenga la página web.
+				Estableciendo una conexión por cada recurso.
+ 
+				</p>
+							
+				
+			
+				</section>
+				<section>
+			
+				<p> 
+				Este modo de funcionamiento es el que establece la versión 1.0 del protocolo HTTP. La versión 1.1
+				del protocolo permite mantener la conexión abierta, de modo que el cliente le pueda solicitar al
+				servidor el resto de los recursos necesarios par apoder formar la página web completa sin necesidad
+				de volver a tener que abrir más conexiones, acelerándose de este modo la carga de las páginas en los
+				navegadores.
+ 
+				</p>
+							
+				
+			
+				</section>
+									<section>
+				<h3>Técnicas para mantener sesiones HTTP</h3>
+				<p> 
+				Como se ha comentado, el protocolo HTTP no tiene memoria y una vez que un usuario ha cambiado de página,
+				no hay forma de saber la actividad anterior. Por ello, no permite por sí mismo mantener sesiones de usuario
+				en los sitios web.<br/>
+				
+				<a href="http://redesdecomputadores.umh.es/aplicacion/HTTP.htm">Funcionamiento HTTP</a><br/>
+				<a href=https://developer.mozilla.org/es/docs/Web/HTTP/Gestion_de_la_conexion_en_HTTP_1.x>Técnicas para mantener sesiones HTTP</a><br/>
+				Una forma de suplir este inconveniente en el protocolo HTTP consiste en el uso de las Cookies.
+				
+ 
+				</p>
+							
+				
+			
+				</section>
+					<section>
+				<p> 
+				Cada vez que visitamos una página, un servidor es el encargado de responder nuestra petición.
+                Cada solicitud que realizamos y la respuesta que recibimos, son totalmente independientes por naturaleza.
+             Sin embargo, el uso de Cookies hace posible la existencia de un estado entre las distintas peticiones que vamos realizando.
+              Es decir, las peticiones HTTP carecen de estado (stateless), pero si se apoyan en el uso de Cookies pueden tener uno 
+                         (statefull) y con ello modificar lo que los visitantes ven, en función de sus cookies guardadas.
+
+                <a href="https://programacionymas.com/blog/cookies-y-sesiones">cookies y sesiones</a>
+
+ 
+				</p>
+							
+				
+			
+				</section>
+						<section>
+				<p> 
+				Se pueden emplear cookies, entre otras cosas, para:<br/>
+
+    -Identificar a un usuario durante una o varias sesiones. Por ejemplo, a la hora de realizar compras a través de una tienda web,
+     se almacena su identidad (login y password) como una cookie y se recuerda a lo largo de diferentes visitas qué es lo que lleva
+      almacenado en su cesta de la compra cada usuario.<br/>
+    -Personalizar un sitio web de acuerdo a las preferencias de cada usuario: definir el contenido, apariencia, etc, 
+    que queremos que tenga una determinada página en función de las preferencias del usuario que la esté visitando.
+
+
+ 
+				</p>
+							
+				
+			
+				</section>
+					<section>
+				<h3>La direcciones web</h3>
+				<p> 
+				Para navegar por Internet, cuando un cliente solicita una petición a un servidor web, se realiza mediante una dirección web o URL o Uniform Resource Locator.
+
+                Por ejemplo: http://www.profesordeinformatica.com/html. <br/><br/>
+                
+                Vamos a diferenciar entre URN, URL y URI.
+ 
+				</p>
+							
+				
+				</section>
+					<section>
+				<p> 
+			     El término URI engloba tanto a las URLs como a las URNs. 
+			     Dicho de otro modo, una URL es un tipo de URI y un URN también es un tipo de URI.<br/>
+			     Cada vez que escribimos una dirección web en el navegador y accedemos a un sitio, estamos utilizando una URI.<br/>
+			     
+			     
+			     <a href="https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/uniform-resource-name/">Ejemplo de URN</a>
+			     
+			     <a href="https://www.htmlquick.com/es/reference/uri-url.html">Ejemplos de uri y url</a>
+			     
+				</p>
+							
+				
+				</section>
+					<section>
+				<p> 
+				Los URI (Identificadores Uniformes de Recursos o Uniform Resource Identifier) son cadenas que indica un recurso 
+			     en Internet. Puede llevar datos adicionales que indiquen cosas como de qué forma acceder al recurso.<br/>
+			     Los URN (Nombres Uniformes de Recursos o Uniform Resource Name) identifican a un recurso en Internet, 
+			     pero no los localizan. <br/>
+			     Los URL (Localizadores Uniformes de Recursos o Uniform Resource Locator) son secuencias de caracteres
+			     que se utilizan para localizar recursos en Internet (paginas web, sonidos, vídeos, imágenes, etc).
+			     
+				</p>
+							
+				
+				</section>
+					<section>
+						
+						<h3>Comandos HTTP</h3>
+				<p> 
+				Cuando se establece una conexión con un servidor web. este se queda esperando a recibir un comando HTTP por
+				parte del cliente. Los comandos más importantes son:<br/>
+				- GET: Le indica al servidor que le envíe un recurso. Es el que usa el navegador para poder obtener las páginas web
+				y el resto de ficheros necesarios para mostrar la página. Cuando el servidor contesta manda un conjunto de datos denominados
+				cabecera con información del recurso solicitado: tamaño, fecha, tipo y a continuación el recurso en sí.
+				
+				
+				</p>
+							
+				
+				</section>
+				<section>
+				<p> 
+				- POST: Lo utiliza el cliente para el envío de información al servidor. Se utiliza frecuentemente para enviarle al servidor
+				los valores de los campos de los formularios que aparecen en las páginas web<br/>
+							
+				
+				El envío del contenido de un formulario utiliza GET o POST, en función del atributo de <FORM METHOD="..."><br/>
+				<a href="https://neo.lcc.uma.es/evirtual/cdd/tutorial/aplicacion/http.html">Órdenes HTTP y Métodos</a><br/>
+				<a href="https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=527:get-y-post-html-method-formas-de-envio-de-datos-en-formulario-diferencias-y-ventajas-ejemplos-cu00721b&catid=69&Itemid=192">Ejemplos diferencias métodos POST y GET</a>
+				</p>
+							
+				
+				</section>
+					<section>
+				
+				<p>
+					- HEAD: Es similar a la orden GET, pero el servidor no envía el recurso en sí sino la cabecera con la información del recurso <br/>
+					- PUT: Se utiliza par que un cliente pueda subir recursos al servidor.
+					- DELETE: Se utiliza para que un cliente pueda borrar recursos del servidor <br/><br/>
+					
+					
+					<a href="http://redesdecomputadores.umh.es/aplicacion/HTTP.htm">Ejemplo de solicitud y respuesta HTTP</a><br/>
+					
+				<a href="https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto">Órdenes y códigos de respuesta</a>
+					
+					
+				</p>
+				 	</section>
+				 		<section>
+				<h3>Ejercicio 1</h3>
+					<p>
+				1. Realiza el ejemplo que viene al final de la página del siguiente enlace, explica y captura los resultados:<br/>
+				<a href="https://blog.makeitreal.camp/el-protocolo-http/">Realiza el ejemplo en tu PC  </a><br/>
+				
+				Utilizando el navegador Chrome y sus herramientas de desarrrollo, dirígete a: <br/>
+				http://google.com.co/lsdifs. <br/>
+				Fíjate que el código de respuesta es 404 Not Found <br/>
+				Localiza códigos de respuesta concretos por parte del servidor
+			
+				
+				
+				</p>
+				 	</section>
+				 		 		<section>
+				<h3>Ejercicio 2</h3>
+					<p>
+				2. Desde Ubuntu conéctate utilizando telnet a las direcciones web del documento
+				"peticiones_http.pdf" que está en la plataforma<br/>
+				
+								
+				
+				</p>
+				 	</section>
+				 	  		 		<section>
+				<h3>Ejercicio 3</h3>
+					<p>
+				3.Lanza Wireshark y captura una petición web. Analiza una trama HTTP con GET (request) y su 
+				correspondiente respuesta por parte del servidor (response).<br/>
+				Compara el resultado de algunos de los campos que corresponden al nivel HTTP (protocolo de Aplicación)
+				con la información de las cabeceras HTTP obtenidas utilizando telnet del ejercicio anterior.
+								
+				
+				</p>
+				 	</section>
+				 		 		<section>
+				<h3>Ejercicio 4</h3>
+					<p>
+				4.Escribe diferentes ejemplos de URL/URI indicando las partes en las que se dividen.
+								
+				
+				</p>
+				 	</section>
+				 	<section>
+				<h3>Entrega de ejercicios</h3>
+					<p>
+				Realiza los ejercicios en un documento de word y luego súbelos a la plataforma en formato pdf.
+								
+				
+				</p>
+				 	</section>
+				 	 		
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
